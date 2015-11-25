@@ -110,6 +110,12 @@ public class JrubyTimestampExtLibrary implements Library {
             return RubyFixnum.newFixnum(context.runtime, this.timestamp.getTime().getMillis() / 1000);
         }
 
+        @JRubyMethod(name = "to_f")
+        public IRubyObject ruby_to_f(ThreadContext context)
+        {
+            return RubyFloat.newFloat(context.runtime, this.timestamp.getTime().getMillis() / 1000.0d);
+        }
+
         @JRubyMethod(name = "to_s")
         public IRubyObject ruby_to_s(ThreadContext context)
         {
