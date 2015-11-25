@@ -204,5 +204,17 @@ public class JrubyTimestampExtLibrary implements Library {
         {
             return RubyTimestamp.newRubyTimestamp(context.runtime);
         }
+
+        @JRubyMethod(name = "utc")
+        public IRubyObject ruby_utc(ThreadContext context)
+        {
+            return this;
+        }
+
+        @JRubyMethod(name = "gmtime")
+        public IRubyObject ruby_gmtime(ThreadContext context)
+        {
+            return this;
+        }
     }
 }
