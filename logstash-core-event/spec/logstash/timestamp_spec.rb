@@ -94,4 +94,16 @@ describe LogStash::Timestamp do
     end
   end
 
+  context "numeric casting methods" do
+    let (:now) {Time.now}
+    subject { LogStash::Timestamp.new(now) }
+
+    it "should support to_i" do
+      expect(subject.to_i).to eq(now.to_i)
+    end
+
+    it "should support to_f" do
+      expect(subject.to_f).to eq(now.to_f)
+    end
+  end
 end
