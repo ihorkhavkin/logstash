@@ -81,4 +81,17 @@ describe LogStash::Timestamp do
       expect(t - 10).to eq(current)
     end
   end
+
+  context "identity methods" do
+    subject { LogStash::Timestamp.new }
+
+    it "should support utc" do
+      expect(subject.utc).to eq(subject)
+    end
+
+    it "should support gmtime" do
+      expect(subject.gmtime).to eq(subject)
+    end
+  end
+
 end
