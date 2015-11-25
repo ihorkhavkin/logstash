@@ -90,6 +90,12 @@ describe LogStash::Event do
       expect(e["[foo][2]"]).to eq(1.0)
       expect(e["[foo][3]"]).to be_nil
     end
+
+    it "should set nil value" do
+      e = LogStash::Event.new()
+      e["[foo]"] = nil
+      expect(e.to_hash).to include("foo")
+    end
   end
 
   context "timestamp" do
